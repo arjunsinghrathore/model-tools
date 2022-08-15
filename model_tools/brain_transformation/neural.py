@@ -111,7 +111,7 @@ class LayerScores:
               model, benchmark, layers, prerun=False):
         layer_scores = []
         for i, layer in enumerate(tqdm(layers, desc="layers")):
-            layer_model = LayerMappedModel(identifier=f"{model_identifier}-{layer}", visual_degrees=visual_degrees,
+            layer_model = LayerMappedModel(identifier=f"{model_identifier}-{layer}", visual_degrees=visual_degrees, \
                                            # per-layer identifier to avoid overlap
                                            activations_model=model, region_layer_map={benchmark.region: layer})
             layer_model = TemporalIgnore(layer_model)

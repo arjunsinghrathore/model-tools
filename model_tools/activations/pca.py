@@ -98,8 +98,11 @@ def _get_imagenet_val(num_images):
         indices.extend(50 * i + np.array([num_images_per_class]).astype(int))
 
     framework_home = os.path.expanduser(os.getenv('MT_HOME', '~/.model-tools'))
-    imagenet_filepath = os.getenv('MT_IMAGENET_PATH', os.path.join(framework_home, 'imagenet2012.hdf5'))
+    # imagenet_filepath = os.getenv('MT_IMAGENET_PATH', os.path.join(framework_home, 'imagenet2012.hdf5'))
+    imagenet_filepath = '/media/data_cifs/projects/prj_brainscore/arjun_brainscore/bs_hackathon/imagenet/imagenet2012.hdf5' # /home/aarjun1/.model-tools/imagenet2012.hdf5   
+    print('imagenet_filepath : ',imagenet_filepath)
     imagenet_dir = f"{imagenet_filepath}-files"
+    print('imagenet_dir : ',imagenet_dir)
     os.makedirs(imagenet_dir, exist_ok=True)
 
     if not os.path.isfile(imagenet_filepath):

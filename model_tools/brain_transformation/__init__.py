@@ -59,7 +59,10 @@ class ModelCommitment(BrainModel):
         layer_selection = LayerSelection(model_identifier=self.layer_model.identifier,
                                          activations_model=self.layer_model.activations_model, layers=self.layers,
                                          visual_degrees=self.visual_degrees())
+
+        print('region : ',region)
         benchmark = self.region_benchmarks[region]
+        benchmark.region = region
         best_layer = layer_selection(selection_identifier=region, benchmark=benchmark)
         self.layer_model.commit(region, best_layer)
 
